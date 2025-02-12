@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +15,43 @@
     <link rel="stylesheet" href="./styles/style.css">
     <title>Pokédex</title>
 </head>
+
 <body>
-    
+
+    <header class="py-4">
+        <div class="container">
+            <div class="header-layout">
+                <div class="align-h1-and-logo">
+                    <a href="./index.html"><img src="./assets/img/pokemon.png" alt="Pokeball"></a>
+                    <h1>Pokédex</h1>
+                </div>
+                <form onsubmit="return false">
+                    <input type="search" id="input_search" name="input_search" placeholder="Pikachu..." required
+                        min="3">
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+    </main>
+
+    <footer class="py-4">
+        <div class="container">
+            <div class="center-footer-content">
+                <img src="./assets/img/footer_logo.webp" alt="Logo">
+                <div>© 2025 Marcel Göhn</div>
+                <div class="law">
+                    <a class="rights" href="./impressum.html" target="_blank">Impressum</a>
+                    <a class="rights" href="./datenschutzerklärung.html" target="_blank">Datenschutzerklärung</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script src="./scripts/script.js"></script>
     <script src="./scripts/template.js"></script>
 </body>
+
 </html>
