@@ -8,9 +8,6 @@ const wrapper = document.querySelector('.wrapper');
 async function init() {
     let pokemonResponse = await fetchPokemons();
     let pokemonResponseObject = pokemonResponse;
-    console.log(pokemonResponseObject);
-    
-    
     for (let i = 0; i < pokemonResponseObject.results.length; i++) {
         pokemons.push(
             pokemonResponseObject.results[i].url
@@ -38,7 +35,6 @@ async function fetchPokemons() {
 async function storePokemonData() {
     for (let i = 0; i < pokemons.length; i++) {
         let pokemonInformation = await fetchPokemonData(i);
-
         pokemonsData.push(
             {
                 id : pokemonInformation.id,
