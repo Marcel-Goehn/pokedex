@@ -1,0 +1,30 @@
+.card {
+    width: 18.75rem;
+    background-color: #082129;
+    border-radius: 15px;
+}
+
+.card h3 {
+    text-align: center;
+    padding-block: 0.5rem;
+}
+
+.card-img-background {
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-img-background img {
+    /* height: 250px; */
+    width: 250px;
+}
+
+.align-elements {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: 0.5rem;
+    gap: 20px;
+}

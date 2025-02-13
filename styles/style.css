@@ -5,6 +5,10 @@
     max-width: 1440px;
 }
 
+body {
+    background-color: #0D171C;
+}
+
 .py-4 {
     padding-block: 1.5rem;
 }
@@ -23,6 +27,7 @@ a:hover {
 
 header {
     background-color: #082129;
+    margin-bottom: 3rem;
 }
 
 header img {
@@ -47,8 +52,17 @@ main {
     flex: 1;
 }
 
+.align-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
 footer {
     background-color: #082129;
+    margin-top: 3rem;
 }
 
 footer img {
