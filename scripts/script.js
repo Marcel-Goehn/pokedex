@@ -1,6 +1,8 @@
 let BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=90&offset=0";
 let pokemons = [];
 let pokemonsData = [];
+const dialog = document.getElementById('overlay');
+const wrapper = document.querySelector('.wrapper');
 
 
 async function init() {
@@ -80,6 +82,20 @@ function renderPokemonCards() {
 }
 
 
-console.log(pokemons);
-console.log(pokemonsData);
+function showDialog(i) {
+    wrapper.innerHTML = getDialogTemplate(i);
+    dialog.showModal();
+}
+
+
+function closeDialog() {
+    dialog.close();
+}
+
+
+dialog.onclick = function(e) {
+    if(!wrapper.contains(e.target)) {
+        dialog.close();
+    }
+}
 
