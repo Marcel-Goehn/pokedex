@@ -1,17 +1,17 @@
-let BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0";
+let BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=90&offset=0";
 let pokemons = [];
 let pokemonsData = [];
 
 
 async function init() {
     let pokemonResponse = await fetchPokemons();
-    let pokemonResponseArray = pokemonResponse;
-    console.log(pokemonResponseArray);
+    let pokemonResponseObject = pokemonResponse;
+    console.log(pokemonResponseObject);
     
     
-    for (let i = 0; i < pokemonResponseArray.results.length; i++) {
+    for (let i = 0; i < pokemonResponseObject.results.length; i++) {
         pokemons.push(
-            pokemonResponseArray.results[i].url
+            pokemonResponseObject.results[i].url
         );
     }
     storePokemonData();
@@ -41,10 +41,17 @@ async function storePokemonData() {
             {
                 id : pokemonInformation.id,
                 name : pokemonInformation.name,
-                img : pokemonInformation.sprites.front_default
+                img : pokemonInformation.sprites.front_default,
+                types : pokemonInformation.types,
+                height : pokemonInformation.height,
+                weight : pokemonInformation.weight,
+                base_experience : pokemonInformation.base_experience,
+                abilities : pokemonInformation.abilities,
+                stats : pokemonInformation.stats,
             }
         );
     }
+    renderPokemonCards();
 }
 
 
@@ -63,9 +70,13 @@ async function fetchPokemonData(index) {
 }
 
 
-function test() {
-    document.getElementById('experiment').setAttribute("src", `${pokemonsData[0].img}`);
-    document.getElementById('experiment').style = "width: 250px;";
+function renderPokemonCards() {
+    let cardsRef = document.getElementById('poke_gallery');
+    cardsRef.innerHTML = ``;
+
+    for (let i = 0; i < pokemonsData.length; i++) {
+        cardsRef.innerHTML += getCardsTemplate(i);
+    }
 }
 
 
