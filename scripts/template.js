@@ -29,11 +29,11 @@ function getDialogTemplate(i) {
                 <table id="main_table${i}">
                     <tr>
                         <td>Height:</td>
-                        <td>${pokemonsData[i].height}</td>
+                        <td>${pokemonsData[i].height} m</td>
                     </tr>
                     <tr>
                         <td>Weight:</td>
-                        <td>${pokemonsData[i].weight}</td>
+                        <td>${pokemonsData[i].weight} kg</td>
                     </tr>
                     <tr>
                         <td>Base Experience:</td>

@@ -111,3 +111,7 @@ function showStats(i) {
     document.getElementById('main_button' + i).classList.remove('red-underline');
 }
 
+
+console.log(pokemonsData);
+
+
