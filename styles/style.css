@@ -9,6 +9,10 @@ body {
     background-color: #0D171C;
 }
 
+.d_none {
+    display: none;
+}
+
 .py-4 {
     padding-block: 1.5rem;
 }
