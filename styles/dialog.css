@@ -6,7 +6,7 @@ dialog {
     padding: 0;
     outline: none;
     border-radius: 10px;
-    background-color: #082129;
+    background-color: #0D171C;
 }
 
 dialog .wrapper {
@@ -16,4 +16,9 @@ dialog .wrapper {
 
 dialog .card {
     cursor: default;
+    background-color: #0D171C;
+}
+
+.align-buttons {
+    display: flex;
 }

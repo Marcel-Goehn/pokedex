@@ -35,6 +35,8 @@ async function fetchPokemons() {
 async function storePokemonData() {
     for (let i = 0; i < pokemons.length; i++) {
         let pokemonInformation = await fetchPokemonData(i);
+        console.log(pokemonInformation);
+        
         pokemonsData.push(
             {
                 id : pokemonInformation.id,

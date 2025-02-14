@@ -2,3 +2,16 @@ input {
     padding: 0.625em 0.938em;
     border-radius: 5px;
 }
+
+button {
+    padding: 0.625em 0.938em;
+    width: 100%;
+    color: white;
+    background-color: #082129;
+    border: 1px solid black;
+    transition: border-bottom 125ms;
+}
+
+button:hover {
+    border-bottom: 2px solid white;
+}
