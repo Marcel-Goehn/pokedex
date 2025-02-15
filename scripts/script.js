@@ -1,4 +1,4 @@
-let BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0";
+let BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=40&offset=0";
 let pokemons = [];
 let pokemonsData = [];
 const dialog = document.getElementById('overlay');
