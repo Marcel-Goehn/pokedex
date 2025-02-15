@@ -5,7 +5,7 @@ function getCardsTemplate(i) {
                     <img src="${pokemonsData[i].sprites.front_default}" alt="${pokemonsData[i].name}">
                 </div>
                 <div class="align-elements">
-                
+                    ${getTypes(i)}
                 </div>
             </div>`
 }
@@ -71,4 +71,14 @@ function getDialogTemplate(i) {
                     </tr>
                 </table>
             </div>`
+}
+
+
+function getTypes(i) {
+    let types = ``;
+
+    for (let j = 0; j < pokemonsData[i].types.length; j++) {
+        types += `<div>${pokemonsData[i].types[j].type.name}</div>`
+    }
+    return types;
 }
