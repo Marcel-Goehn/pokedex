@@ -18,6 +18,12 @@
 
 .card-img-background img {
     width: 250px;
+    transition: 125ms all;
+}
+
+.card-img-background img:hover {
+    transform: scale(1.1);
+    filter: saturate(200%) drop-shadow(0 0 20px rgba(0, 0, 0, 0.8));
 }
 
 .align-elements {
