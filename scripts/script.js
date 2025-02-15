@@ -35,19 +35,7 @@ async function fetchPokemons() {
 async function storePokemonData() {
     for (let i = 0; i < pokemons.length; i++) {
         let pokemonInformation = await fetchPokemonData(i);
-        pokemonsData.push(
-            {
-                id : pokemonInformation.id,
-                name : pokemonInformation.name,
-                img : pokemonInformation.sprites.front_default,
-                types : pokemonInformation.types,
-                height : pokemonInformation.height,
-                weight : pokemonInformation.weight,
-                base_experience : pokemonInformation.base_experience,
-                abilities : pokemonInformation.abilities,
-                stats : pokemonInformation.stats,
-            }
-        );
+        pokemonsData.push(pokemonInformation);
     }
     renderPokemonCards();
 }
@@ -113,5 +101,6 @@ function showStats(i) {
 
 
 console.log(pokemonsData);
+
 
 
