@@ -88,17 +88,26 @@ function getTypes(i) {
 
 
 function getEvolutionChain(i) {
-    firstEvolution = pokemonsFetchedEvoChain[i].chain.species.name;
+    let firstEvolution = pokemonsFetchedEvoChain[i].chain.species.url;
+    let slicedFirstEvolution = firstEvolution.slice(25);
+    let regexFirstEvolutionArray = slicedFirstEvolution.match(/\d+/g);
+    let regexFirstEvolution = regexFirstEvolutionArray.toString();
     if(pokemonsFetchedEvoChain[i].chain.evolves_to.length == 0) {
-        return `<span>${firstEvolution}</span>`
+        return `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${regexFirstEvolution}.png">`
     }
-    secondEvolution = pokemonsFetchedEvoChain[i].chain.evolves_to[0].species.name;
+    let secondEvolution = pokemonsFetchedEvoChain[i].chain.evolves_to[0].species.url;
+    let slicedSecondEvolution = secondEvolution.slice(25);
+    let regexSecondEvolutionArray = slicedSecondEvolution.match(/\d+/g);
+    let regexSecondEvolution = regexSecondEvolutionArray.toString();
     if(pokemonsFetchedEvoChain[i].chain.evolves_to[0].evolves_to.length == 0){
-        return `<span>${firstEvolution}</span>
-                <span>${secondEvolution}</span>`
+        return `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${regexFirstEvolution}.png">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${regexSecondEvolution}.png">`
     }
-    thirdEvolution = pokemonsFetchedEvoChain[i].chain.evolves_to[0].evolves_to[0].species.name;
-    return `<span>${firstEvolution}</span>
-            <span>${secondEvolution}</span>
-            <span>${thirdEvolution}</span>`
+    let thirdEvolution = pokemonsFetchedEvoChain[i].chain.evolves_to[0].evolves_to[0].species.url;
+    let slicedThirdEvolution = thirdEvolution.slice(25);
+    let regexThirdEvolutionArray = slicedThirdEvolution.match(/\d+/g);
+    let regexThirdEvolution = regexThirdEvolutionArray.toString();
+    return `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${regexFirstEvolution}.png">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${regexSecondEvolution}.png">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${regexThirdEvolution}.png">`
 }
