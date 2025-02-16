@@ -39,3 +39,10 @@ tr {
 td {
     max-width: 50%;
 }
+
+.evolution-chain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}

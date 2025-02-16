@@ -23,6 +23,7 @@ function getDialogTemplate(i) {
                 <div class="align-buttons">    
                     <button id="main_button${i}" class="red-underline" onclick="showMain(${i})">main</button>
                     <button id="stats_button${i}" onclick="showStats(${i})">stats</button>
+                    <button id="evo_button${i}" onclick="showEvolutionChain(${i})">evo-chain</button>
                 </div>
                 <table id="main_table${i}">
                     <tr>
@@ -69,6 +70,9 @@ function getDialogTemplate(i) {
                         <td>${pokemonsData[i].stats[5].base_stat}</td>
                     </tr>
                 </table>
+                <div class="d_none evolution-chain" id="evolution${i}">
+                    ${getEvolutionChain(i)}
+                </div>
             </div>`
 }
 
@@ -80,4 +84,21 @@ function getTypes(i) {
         types += `<img src="./assets/types_icons/${pokemonsData[i].types[j].type.name}.svg" class="icon ${pokemonsData[i].types[j].type.name}">`
     }
     return types;
+}
+
+
+function getEvolutionChain(i) {
+    firstEvolution = pokemonsFetchedEvoChain[i].chain.species.name;
+    if(pokemonsFetchedEvoChain[i].chain.evolves_to.length == 0) {
+        return `<span>${firstEvolution}</span>`
+    }
+    secondEvolution = pokemonsFetchedEvoChain[i].chain.evolves_to[0].species.name;
+    if(pokemonsFetchedEvoChain[i].chain.evolves_to[0].evolves_to.length == 0){
+        return `<span>${firstEvolution}</span>
+                <span>${secondEvolution}</span>`
+    }
+    thirdEvolution = pokemonsFetchedEvoChain[i].chain.evolves_to[0].evolves_to[0].species.name;
+    return `<span>${firstEvolution}</span>
+            <span>${secondEvolution}</span>
+            <span>${thirdEvolution}</span>`
 }
