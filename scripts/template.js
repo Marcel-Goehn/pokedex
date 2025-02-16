@@ -93,24 +93,42 @@ function getEvolutionChain(i) {
     let regexFirstEvolutionArray = slicedFirstEvolution.match(/\d+/g);
     let regexFirstEvolution = regexFirstEvolutionArray.toString();
     if(pokemonsFetchedEvoChain[i].chain.evolves_to.length == 0) {
-        return `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${regexFirstEvolution}.png">`
+        return `<div>
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${regexFirstEvolution}.png">
+                    <div>${pokemonsFetchedEvoChain[i].chain.species.name}</div>
+                </div>`
     }
     let secondEvolution = pokemonsFetchedEvoChain[i].chain.evolves_to[0].species.url;
     let slicedSecondEvolution = secondEvolution.slice(25);
     let regexSecondEvolutionArray = slicedSecondEvolution.match(/\d+/g);
     let regexSecondEvolution = regexSecondEvolutionArray.toString();
     if(pokemonsFetchedEvoChain[i].chain.evolves_to[0].evolves_to.length == 0){
-        return `<img class="evo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${regexFirstEvolution}.png">
+        return `<div>
+                    <img class="evo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${regexFirstEvolution}.png">
+                    <div>${pokemonsFetchedEvoChain[i].chain.species.name}</div>
+                </div>
                 <img class="evo-arrow" src="../assets/img/arrow_right.png">
-                <img class="evo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${regexSecondEvolution}.png">`
+                <div>
+                    <img class="evo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${regexSecondEvolution}.png">
+                    <div>${pokemonsFetchedEvoChain[i].chain.evolves_to[0].species.name}</div>
+                </div>`
     }
     let thirdEvolution = pokemonsFetchedEvoChain[i].chain.evolves_to[0].evolves_to[0].species.url;
     let slicedThirdEvolution = thirdEvolution.slice(25);
     let regexThirdEvolutionArray = slicedThirdEvolution.match(/\d+/g);
     let regexThirdEvolution = regexThirdEvolutionArray.toString();
-    return `<img class="evo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${regexFirstEvolution}.png">
+    return `<div>
+                <img class="evo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${regexFirstEvolution}.png">
+                <div>${pokemonsFetchedEvoChain[i].chain.species.name}</div>
+            </div>
             <img class="evo-arrow" src="../assets/img/arrow_right.png">
-            <img class="evo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${regexSecondEvolution}.png">
+            <div>
+                <img class="evo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${regexSecondEvolution}.png">
+                <div>${pokemonsFetchedEvoChain[i].chain.evolves_to[0].species.name}</div>
+            </div>
             <img class="evo-arrow" src="../assets/img/arrow_right.png">
-            <img class="evo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${regexThirdEvolution}.png">`
+            <div>
+                <img class="evo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${regexThirdEvolution}.png">
+                <div>${pokemonsFetchedEvoChain[i].chain.evolves_to[0].evolves_to[0].species.name}</div>
+            </div>`
 }
