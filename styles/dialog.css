@@ -44,5 +44,16 @@ td {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    height: 140px;
+    background-color: #082129;
+}
+
+.evo-img {
+    height: 72px;
+    width: 72px;
+}
+
+.evo-arrow {
+    height: 24px;
+    width: 24px;
 }
