@@ -137,6 +137,20 @@ function showEvolutionChain(i) {
 }
 
 
+function previousPokemon(i, event) {
+    event.stopPropagation();
+    let result = (i - 1 + pokemons.length) % pokemons.length;
+    showDialog(result);
+}
+
+
+function nextPokemon(i, event) {
+    event.stopPropagation();
+    let result = (i + 1) % pokemons.length;
+    showDialog(result);
+}
+
+
 console.log(pokemonsData);
 console.log(pokemonsFetchedEvoChain);
 

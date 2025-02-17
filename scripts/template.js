@@ -18,8 +18,13 @@ function getDialogTemplate(i) {
                     <img src="${pokemonsData[i].sprites.front_default}" alt="${pokemonsData[i].name}">
                 </div>
                 <div class="align-elements">
-                ${getTypes(i)}
+                    <img onclick="previousPokemon(${i}, event)" class="arrow-btns" src="../assets/icons/arrow_left.svg">
+                    <div class="align-elements">
+                        ${getTypes(i)}
+                    </div>
+                    <img onclick="nextPokemon(${i}, event)" class="arrow-btns" src="../assets/icons/arrow_right.svg">
                 </div>
+                
                 <div class="align-buttons">    
                     <button id="main_button${i}" class="red-underline" onclick="showMain(${i})">main</button>
                     <button id="stats_button${i}" onclick="showStats(${i})">stats</button>
