@@ -17,7 +17,7 @@ function getDialogTemplate(i) {
                 <div class="card-img-background ${pokemonsData[i].types[0].type.name}1">
                     <img src="${pokemonsData[i].sprites.front_default}" alt="${pokemonsData[i].name}">
                 </div>
-                <div class="align-elements">
+                <div class="align-elements-outside">
                     <img onclick="previousPokemon(${i}, event)" class="arrow-btns" src="../assets/icons/arrow_left.svg">
                     <div class="align-elements">
                         ${getTypes(i)}

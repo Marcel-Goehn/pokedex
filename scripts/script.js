@@ -1,5 +1,6 @@
-let BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=40&offset=0";
+let BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=80&offset=0";
 let pokemons = [];
+let pokemonsCopy = [];
 let pokemonsData = [];
 let pokemonsFetchedEvoChain = [];
 const dialog = document.getElementById('overlay');
@@ -90,9 +91,34 @@ function renderPokemonCards() {
     let cardsRef = document.getElementById('poke_gallery');
     cardsRef.innerHTML = ``;
 
-    for (let i = 0; i < pokemonsData.length; i++) {
+    for (let i = 0; i < 40; i++) {
+        pokemonsCopy.push(pokemons[i]);
         cardsRef.innerHTML += getCardsTemplate(i);
     }
+    enableRenderBtn();
+}
+
+
+function renderAllFetchedPokemonCards() {
+    let cardsRef = document.getElementById('poke_gallery');
+    cardsRef.innerHTML = ``;
+    pokemonsCopy = [];
+
+    for (let i = 0; i < pokemons.length; i++) {
+        pokemonsCopy.push(pokemons[i]);
+        cardsRef.innerHTML += getCardsTemplate(i);
+    }
+    disableRenderBtn();
+}
+
+
+function enableRenderBtn() {
+    document.getElementById('loading_btn').classList.remove('d_none');
+}
+
+
+function disableRenderBtn() {
+    document.getElementById('loading_btn').classList.add('d_none');
 }
 
 
@@ -146,14 +172,14 @@ function showEvolutionChain(i) {
 
 function previousPokemon(i, event) {
     event.stopPropagation();
-    let result = (i - 1 + pokemons.length) % pokemons.length;
+    let result = (i - 1 + pokemonsCopy.length) % pokemonsCopy.length;
     showDialog(result);
 }
 
 
 function nextPokemon(i, event) {
     event.stopPropagation();
-    let result = (i + 1) % pokemons.length;
+    let result = (i + 1) % pokemonsCopy.length;
     showDialog(result);
 }
 

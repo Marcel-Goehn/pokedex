@@ -9,6 +9,20 @@ body {
     background-color: #0D171C;
 }
 
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #05171E;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #73B7D0;
+    border-radius: 10px;
+}
+
 .d_none {
     display: none;
 }
@@ -62,6 +76,26 @@ main {
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
+}
+
+.align-loading-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 3rem;
+}
+
+.align-loading-btn img {
+    height: 50px;
+    width: 50px;
+    transition: 200ms all;
+}
+
+.align-loading-btn img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    filter: saturate(200%);
 }
 
 footer {

@@ -32,4 +32,14 @@
     align-items: center;
     padding-block: 0.5rem;
     gap: 20px;
+    padding-inline: 10px;
+}
+
+.align-elements-outside {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 10px;
+    padding-block: 0.5rem;
+    gap: 20px;
 }
