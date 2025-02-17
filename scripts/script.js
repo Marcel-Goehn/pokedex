@@ -7,6 +7,7 @@ const wrapper = document.querySelector('.wrapper');
 
 
 async function init() {
+    loadingSpinner();
     let pokemonResponse = await fetchPokemons();
     let pokemonResponseObject = pokemonResponse;
     for (let i = 0; i < pokemonResponseObject.results.length; i++) {
@@ -76,6 +77,12 @@ async function fetchEvoChain(pokemonInformation) {
     catch(error) {
         console.error("Fehler beim Abrufen der Daten:", error);
     }
+}
+
+
+function loadingSpinner() {
+    let cardsRef = document.getElementById('poke_gallery');
+    cardsRef.innerHTML = getLoadingSpinnerTemplate();
 }
 
 

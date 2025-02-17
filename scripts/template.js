@@ -137,3 +137,10 @@ function getEvolutionChain(i) {
                 <div>${pokemonsFetchedEvoChain[i].chain.evolves_to[0].evolves_to[0].species.name}</div>
             </div>`
 }
+
+
+function getLoadingSpinnerTemplate() {
+    return `<div class="spinner-wrapper">
+                <img class="loading-spinner" src="./assets/gifs/loadingspinner.gif" alt="">
+            </div>`
+}
