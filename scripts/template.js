@@ -18,11 +18,11 @@ function getDialogTemplate(i) {
                     <img src="${pokemonsData[i].sprites.front_default}" alt="${pokemonsData[i].name}">
                 </div>
                 <div class="align-elements-outside">
-                    <img onclick="previousPokemon(${i}, event)" class="arrow-btns" src="../assets/icons/arrow_left.svg">
+                    <img onclick="previousPokemon(${i}, event)" class="arrow-btns" src="../assets/img/arrow_circle_left.png">
                     <div class="align-elements">
                         ${getTypes(i)}
                     </div>
-                    <img onclick="nextPokemon(${i}, event)" class="arrow-btns" src="../assets/icons/arrow_right.svg">
+                    <img onclick="nextPokemon(${i}, event)" class="arrow-btns" src="../assets/img/arrow_circle_right.png">
                 </div>
                 
                 <div class="align-buttons">    
@@ -97,7 +97,7 @@ function getEvolutionChain(i) {
     let slicedFirstEvolution = firstEvolution.slice(25);
     let regexFirstEvolutionArray = slicedFirstEvolution.match(/\d+/g);
     let regexFirstEvolution = regexFirstEvolutionArray.toString();
-    if(pokemonsFetchedEvoChain[i].chain.evolves_to.length == 0) {
+    if (pokemonsFetchedEvoChain[i].chain.evolves_to.length == 0) {
         return `<div class="align-chain-name">
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${regexFirstEvolution}.png">
                     <div>${pokemonsFetchedEvoChain[i].chain.species.name}</div>
@@ -107,7 +107,7 @@ function getEvolutionChain(i) {
     let slicedSecondEvolution = secondEvolution.slice(25);
     let regexSecondEvolutionArray = slicedSecondEvolution.match(/\d+/g);
     let regexSecondEvolution = regexSecondEvolutionArray.toString();
-    if(pokemonsFetchedEvoChain[i].chain.evolves_to[0].evolves_to.length == 0){
+    if (pokemonsFetchedEvoChain[i].chain.evolves_to[0].evolves_to.length == 0) {
         return `<div class="align-chain-name">
                     <img class="evo-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${regexFirstEvolution}.png">
                     <div>${pokemonsFetchedEvoChain[i].chain.species.name}</div>
