@@ -70,6 +70,11 @@ main {
     flex: 1;
 }
 
+.empty-alert {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
 .align-cards {
     display: flex;
     justify-content: center;

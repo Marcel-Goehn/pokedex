@@ -31,8 +31,8 @@
                     <h1>Pokédex</h1>
                 </div>
                 <form onsubmit="return false">
-                    <input type="search" id="input_search" name="input_search" placeholder="Pikachu..." required
-                        min="3">
+                    <input onkeyup="getInputValue()" type="search" id="input_search" name="input_search" placeholder="Pikachu..." required min="3">
+                    <div id="requirement" class="d_none">Mindestens 3 Buchstaben</div>
                 </form>
             </div>
         </div>

@@ -3,6 +3,7 @@ let pokemons = [];
 let pokemonsCopy = [];
 let pokemonsData = [];
 let pokemonsFetchedEvoChain = [];
+let clickedReloadBtn = false;
 const dialog = document.getElementById('overlay');
 const wrapper = document.querySelector('.wrapper');
 
@@ -90,9 +91,10 @@ function loadingSpinner() {
 function renderPokemonCards() {
     let cardsRef = document.getElementById('poke_gallery');
     cardsRef.innerHTML = ``;
+    pokemonsCopy = [];
 
     for (let i = 0; i < 40; i++) {
-        pokemonsCopy.push(pokemons[i]);
+        pokemonsCopy.push(structuredClone(pokemonsData[i]));
         cardsRef.innerHTML += getCardsTemplate(i);
     }
     enableRenderBtn();
@@ -103,12 +105,23 @@ function renderAllFetchedPokemonCards() {
     let cardsRef = document.getElementById('poke_gallery');
     cardsRef.innerHTML = ``;
     pokemonsCopy = [];
+    clickedReloadBtn = true;
 
     for (let i = 0; i < pokemons.length; i++) {
-        pokemonsCopy.push(pokemons[i]);
+        pokemonsCopy.push(structuredClone(pokemonsData[i]));
         cardsRef.innerHTML += getCardsTemplate(i);
     }
     disableRenderBtn();
+}
+
+
+function renderFilteredPokemons() {
+    let filteredPokemonsRef = document.getElementById('poke_gallery');
+    filteredPokemonsRef.innerHTML = ``;
+
+    for (let i = 0; i < pokemonsCopy.length; i++) {
+        filteredPokemonsRef.innerHTML += getCardsTemplate(i);
+    }
 }
 
 
@@ -181,6 +194,41 @@ function nextPokemon(i, event) {
     event.stopPropagation();
     let result = (i + 1) % pokemonsCopy.length;
     showDialog(result);
+}
+
+
+function getInputValue() {
+    let inputRef = document.getElementById('input_search');
+    let inputValue = inputRef.value;
+    if(inputValue.length < 3 && inputValue.length > 0) {
+        document.getElementById('requirement').classList.remove('d_none');
+    }
+    if(inputValue.length >= 3 || inputValue.length == 0) {
+        document.getElementById('requirement').classList.add('d_none');
+        filterPokemons(inputValue);
+    }
+    checkRenderStatus(inputValue);       
+}
+
+
+function filterPokemons(value) {
+    pokemonsCopy = pokemonsData.filter(element => element.name.includes(value));
+    if(pokemonsCopy == 0) {
+        let writeEmptyRef = document.getElementById('poke_gallery');
+        writeEmptyRef.innerHTML = getEmptyNoteTemplate();
+        return;
+    }
+    renderFilteredPokemons();
+}
+
+
+function checkRenderStatus(input) {
+    if(input.length == 0 && clickedReloadBtn == false) {
+        renderPokemonCards();
+    }
+    if(input.length == 0 && clickedReloadBtn == true) {
+        renderAllFetchedPokemonCards();
+    }
 }
 
 

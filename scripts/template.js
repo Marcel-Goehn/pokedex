@@ -1,8 +1,8 @@
 function getCardsTemplate(i) {
     return `<div class="card" onclick="showDialog(${i})">
-                <h3>#<span>${pokemonsData[i].id}</span> <span>${pokemonsData[i].name}</span></h3>
-                <div class="card-img-background ${pokemonsData[i].types[0].type.name}1">
-                    <img src="${pokemonsData[i].sprites.front_default}" alt="${pokemonsData[i].name}">
+                <h3>#<span>${pokemonsCopy[i].id}</span> <span>${pokemonsCopy[i].name}</span></h3>
+                <div class="card-img-background ${pokemonsCopy[i].types[0].type.name}1">
+                    <img src="${pokemonsCopy[i].sprites.front_default}" alt="${pokemonsCopy[i].name}">
                 </div>
                 <div class="align-elements">
                     ${getTypes(i)}
@@ -13,9 +13,9 @@ function getCardsTemplate(i) {
 
 function getDialogTemplate(i) {
     return `<div class="card">
-                <h3>#<span>${pokemonsData[i].id}</span> <span>${pokemonsData[i].name}</span></h3>
-                <div class="card-img-background ${pokemonsData[i].types[0].type.name}1">
-                    <img src="${pokemonsData[i].sprites.front_default}" alt="${pokemonsData[i].name}">
+                <h3>#<span>${pokemonsCopy[i].id}</span> <span>${pokemonsCopy[i].name}</span></h3>
+                <div class="card-img-background ${pokemonsCopy[i].types[0].type.name}1">
+                    <img src="${pokemonsCopy[i].sprites.front_default}" alt="${pokemonsCopy[i].name}">
                 </div>
                 <div class="align-elements-outside">
                     <img onclick="previousPokemon(${i}, event)" class="arrow-btns" src="../assets/img/arrow_circle_left.png">
@@ -33,46 +33,46 @@ function getDialogTemplate(i) {
                 <table id="main_table${i}">
                     <tr>
                         <td>Height:</td>
-                        <td>${pokemonsData[i].height} m</td>
+                        <td>${pokemonsCopy[i].height} m</td>
                     </tr>
                     <tr>
                         <td>Weight:</td>
-                        <td>${pokemonsData[i].weight} kg</td>
+                        <td>${pokemonsCopy[i].weight} kg</td>
                     </tr>
                     <tr>
                         <td>Base Experience:</td>
-                        <td>${pokemonsData[i].base_experience}</td>
+                        <td>${pokemonsCopy[i].base_experience}</td>
                     </tr>
                     <tr>
                         <td>Abilities:</td>
-                        <td>${pokemonsData[i].abilities.map(actions => actions.ability.name).join(`, `)}</td>
+                        <td>${pokemonsCopy[i].abilities.map(actions => actions.ability.name).join(`, `)}</td>
                     </tr>
                 </table>
 
                 <table id="stats_table${i}" class="d_none">
                     <tr>
                         <td>Hp:</td>
-                        <td>${pokemonsData[i].stats[0].base_stat}</td>
+                        <td>${pokemonsCopy[i].stats[0].base_stat}</td>
                     </tr>
                     <tr>
                         <td>Attack:</td>
-                        <td>${pokemonsData[i].stats[1].base_stat}</td>
+                        <td>${pokemonsCopy[i].stats[1].base_stat}</td>
                     </tr>
                     <tr>
                         <td>Defence:</td>
-                        <td>${pokemonsData[i].stats[2].base_stat}</td>
+                        <td>${pokemonsCopy[i].stats[2].base_stat}</td>
                     </tr>
                     <tr>
                         <td>Special Attack:</td>
-                        <td>${pokemonsData[i].stats[3].base_stat}</td>
+                        <td>${pokemonsCopy[i].stats[3].base_stat}</td>
                     </tr>
                     <tr>
                         <td>Special Defence:</td>
-                        <td>${pokemonsData[i].stats[4].base_stat}</td>
+                        <td>${pokemonsCopy[i].stats[4].base_stat}</td>
                     </tr>
                     <tr>
                         <td>Speed:</td>
-                        <td>${pokemonsData[i].stats[5].base_stat}</td>
+                        <td>${pokemonsCopy[i].stats[5].base_stat}</td>
                     </tr>
                 </table>
                 <div class="d_none evolution-chain" id="evolution${i}">
@@ -85,8 +85,8 @@ function getDialogTemplate(i) {
 function getTypes(i) {
     let types = ``;
 
-    for (let j = 0; j < pokemonsData[i].types.length; j++) {
-        types += `<img src="./assets/types_icons/${pokemonsData[i].types[j].type.name}.svg" class="icon ${pokemonsData[i].types[j].type.name}">`
+    for (let j = 0; j < pokemonsCopy[i].types.length; j++) {
+        types += `<img src="./assets/types_icons/${pokemonsCopy[i].types[j].type.name}.svg" class="icon ${pokemonsCopy[i].types[j].type.name}">`
     }
     return types;
 }
@@ -143,4 +143,9 @@ function getLoadingSpinnerTemplate() {
     return `<div class="spinner-wrapper">
                 <img class="loading-spinner" src="./assets/gifs/loadingspinner.gif" alt="">
             </div>`
+}
+
+
+function getEmptyNoteTemplate() {
+    return `<div class="empty-alert">Kein Pokemon gefunden...</div>`
 }
