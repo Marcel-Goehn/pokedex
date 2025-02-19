@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="./styles/colors.css">
     <link rel="stylesheet" href="./styles/types_icons.css">
     <link rel="stylesheet" href="./styles/loading_spinner.css">
+    <link rel="stylesheet" href="./styles/burger_menu.css">
     <link rel="stylesheet" href="./styles/style.css">
     <title>Pokédex</title>
 </head>
@@ -30,10 +31,24 @@
                     <a href="./index.html"><img src="./assets/img/pokemon.png" alt="Pokeball"></a>
                     <h1>Pokédex</h1>
                 </div>
-                <form onsubmit="return false">
-                    <input onkeyup="getInputValue()" type="search" id="input_search" name="input_search" placeholder="Pikachu..." required min="3">
-                    <div id="requirement" class="d_none">Mindestens 3 Buchstaben</div>
-                </form>
+                <nav>
+                    <input type="checkbox" id="sidebar-active">
+                    <label for="sidebar-active" class="open-sidebar-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+                    </label>
+            
+                    <label id="burger_menuu" for="sidebar-active"></label>
+                    <div class="links-container">
+                        <label for="sidebar-active" class="close-sidebar-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                        </label>
+            
+                        <form onsubmit="return false">
+                            <input onkeyup="getInputValue()" type="search" id="input_search" name="input_search" placeholder="Pikachu..." required min="3">
+                            <div id="requirement" class="d_none">Mindestens 3 Buchstaben</div>
+                        </form>
+                    </div>
+                </nav>
             </div>
         </div>
     </header>
