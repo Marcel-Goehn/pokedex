@@ -9,7 +9,7 @@ button {
     color: white;
     background-color: #082129;
     border: 1px solid black;
-    transition: border-bottom 125ms;
+    transition: 200ms all;
 }
 
 button:hover {

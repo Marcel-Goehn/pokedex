@@ -39,7 +39,7 @@ async function fetchPokemons() {
 async function storePokemonData() {
     for (let i = 0; i < pokemons.length; i++) {
         let pokemonInformation = await fetchPokemonData(i);
-        let pokemonEvoChain = await fetchEvoChain(pokemonInformation);
+        let pokemonEvoChain = await fetchEvoChainOne(pokemonInformation);
         pokemonsData.push(pokemonInformation);
         pokemonsFetchedEvoChain.push(pokemonEvoChain);
     }
@@ -62,23 +62,28 @@ async function fetchPokemonData(index) {
 }
 
 
-async function fetchEvoChain(pokemonInformation) {
+async function fetchEvoChainOne(pokemonInformation) {
     try {
         let firstResponse = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonInformation.id}`);
         if(!firstResponse.ok) {
             throw new Error(`HTTP Fehler! Status: ${firstResponse.status}`);
         }
         let firstData = await firstResponse.json();
-        let secondResponse = await fetch(firstData.evolution_chain.url);
-        if(!secondResponse.ok) {
-            throw new Error(`HTTP Fehler! Status: ${secondResponse.status}`);
-        }
-        let secondData = await secondResponse.json();
-        return secondData;
+        return fetchEvoChainTwo(firstData);
     }
     catch(error) {
         console.error("Fehler beim Abrufen der Daten:", error);
     }
+}
+
+
+async function fetchEvoChainTwo(data) {
+    let secondResponse = await fetch(data.evolution_chain.url);
+    if(!secondResponse.ok) {
+        throw new Error(`HTTP Fehler! Status: ${secondResponse.status}`);
+    }
+    let secondData = await secondResponse.json();
+    return secondData;
 }
 
 
@@ -230,10 +235,6 @@ function checkRenderStatus(input) {
         renderAllFetchedPokemonCards();
     }
 }
-
-
-console.log(pokemonsData);
-console.log(pokemonsFetchedEvoChain);
 
 
 

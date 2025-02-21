@@ -34,13 +34,12 @@ body {
 a {
     text-decoration: none;
     color: white;
-    transition: text-decoration 125ms, color 125ms, font-size 125ms;
+    transition: 200ms all;
 }
 
 a:hover {
     text-decoration: underline;
     color: #5cb9db;
-    font-size: 1.1rem;
 }
 
 header {
@@ -68,6 +67,9 @@ header img {
 main {
     background-color: #0D171C;
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .empty-alert {
@@ -152,5 +154,11 @@ footer img {
     }
     h1 {
         display: none;
+    }
+    .card {
+        width: 16rem;
+    }
+    .card-img-background img {
+        width: 200px;
     }
 }

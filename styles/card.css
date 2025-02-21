@@ -18,7 +18,7 @@
 
 .card-img-background img {
     width: 250px;
-    transition: 125ms all;
+    transition: 200ms all;
 }
 
 .card-img-background img:hover {
