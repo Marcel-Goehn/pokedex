@@ -16,6 +16,10 @@ nav svg {
     fill: #f0f0f0;
 }
 
+nav svg:hover {
+    cursor: pointer;
+}
+
 #sidebar-active {
     display: none;
 }
