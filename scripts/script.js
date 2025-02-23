@@ -158,33 +158,13 @@ dialog.onclick = function(e) {
 }
 
 
-function showMain(i) {
-    document.getElementById('main_table' + i).classList.remove('d_none');
-    document.getElementById('main_button' + i).classList.add('red-underline');
-    document.getElementById('stats_table' + i).classList.add('d_none');
-    document.getElementById('stats_button' + i).classList.remove('red-underline');
-    document.getElementById('evolution' + i).classList.add('d_none');
-    document.getElementById('evo_button' + i).classList.remove('red-underline');
-}
-
-
-function showStats(i) {
-    document.getElementById('stats_table' + i).classList.remove('d_none');
-    document.getElementById('stats_button' + i).classList.add('red-underline');
-    document.getElementById('main_table' + i).classList.add('d_none');
-    document.getElementById('main_button' + i).classList.remove('red-underline');
-    document.getElementById('evolution' + i).classList.add('d_none');
-    document.getElementById('evo_button' + i).classList.remove('red-underline');
-}
-
-
-function showEvolutionChain(i) {
-    document.getElementById('evolution' + i).classList.remove('d_none');
-    document.getElementById('evo_button' + i).classList.add('red-underline');
-    document.getElementById('main_table' + i).classList.add('d_none');
-    document.getElementById('main_button' + i).classList.remove('red-underline');
-    document.getElementById('stats_table' + i).classList.add('d_none');
-    document.getElementById('stats_button' + i).classList.remove('red-underline');
+function showPokemonCharacteristics(firstId, secondId, thirdId, fourthId, fifthId, sixthId) {
+    document.getElementById(firstId).classList.remove('d_none');
+    document.getElementById(secondId).classList.add('red-underline');
+    document.getElementById(thirdId).classList.add('d_none');
+    document.getElementById(fourthId).classList.remove('red-underline');
+    document.getElementById(fifthId).classList.add('d_none');
+    document.getElementById(sixthId).classList.remove('red-underline');
 }
 
 

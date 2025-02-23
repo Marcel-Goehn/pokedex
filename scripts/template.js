@@ -26,9 +26,9 @@ function getDialogTemplate(i) {
                 </div>
                 
                 <div class="align-buttons">    
-                    <button id="main_button${i}" class="red-underline" onclick="showMain(${i})">main</button>
-                    <button id="stats_button${i}" onclick="showStats(${i})">stats</button>
-                    <button id="evo_button${i}" onclick="showEvolutionChain(${i})">evo-chain</button>
+                    <button id="main_button${i}" class="red-underline" onclick="showPokemonCharacteristics('main_table${i}', 'main_button${i}', 'stats_table${i}', 'stats_button${i}', 'evolution${i}', 'evo_button${i}')">main</button>
+                    <button id="stats_button${i}" onclick="showPokemonCharacteristics('stats_table${i}', 'stats_button${i}', 'main_table${i}', 'main_button${i}', 'evolution${i}', 'evo_button${i}')">stats</button>
+                    <button id="evo_button${i}" onclick="showPokemonCharacteristics('evolution${i}', 'evo_button${i}', 'main_table${i}', 'main_button${i}', 'stats_table${i}', 'stats_button${i}')">evo-chain</button>
                 </div>
                 <table id="main_table${i}">
                     <tr>
