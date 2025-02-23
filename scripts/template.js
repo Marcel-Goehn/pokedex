@@ -18,11 +18,11 @@ function getDialogTemplate(i) {
                     <img src="${pokemonsCopy[i].sprites.front_default}" alt="${pokemonsCopy[i].name}">
                 </div>
                 <div class="align-elements-outside">
-                    <img onclick="previousPokemon(${i}, event)" class="arrow-btns" src="../assets/img/arrow_circle_left.png">
+                    <img onclick="previousPokemon(${i}, event)" class="arrow-btns" src="./assets/img/arrow_circle_left.png">
                     <div class="align-elements">
                         ${getTypes(i)}
                     </div>
-                    <img onclick="nextPokemon(${i}, event)" class="arrow-btns" src="../assets/img/arrow_circle_right.png">
+                    <img onclick="nextPokemon(${i}, event)" class="arrow-btns" src="./assets/img/arrow_circle_right.png">
                 </div>
                 
                 <div class="align-buttons">    
