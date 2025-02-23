@@ -53,28 +53,28 @@ function getDialogTemplate(i) {
                     <tr>
                         <td>Hp:</td>
                         <td>
-                            ${getHpTemplate(i)}
+                            ${getHp(i)}
                         </td>
                     </tr>
                     <tr>
                         <td>Attack:</td>
-                        <td>${getAttackTemplate(i)}</td>
+                        <td>${getAttack(i)}</td>
                     </tr>
                     <tr>
                         <td>Defence:</td>
-                        <td>${getDefenceTemplate(i)}</td>
+                        <td>${getDefence(i)}</td>
                     </tr>
                     <tr>
                         <td>Special Attack:</td>
-                        <td>${getSpecialAttackTemplate(i)}</td>
+                        <td>${getSpecialAttack(i)}</td>
                     </tr>
                     <tr>
                         <td>Special Defence:</td>
-                        <td>${getSpecialDefenceTemplate(i)}</td>
+                        <td>${getSpecialDefence(i)}</td>
                     </tr>
                     <tr>
                         <td>Speed:</td>
-                        <td>${getSpeedTemplate(i)}</td>
+                        <td>${getSpeed(i)}</td>
                     </tr>
                 </table>
                 <div class="d_none evolution-chain" id="evolution${i}">
@@ -153,60 +153,42 @@ function getEmptyNoteTemplate() {
 }
 
 
-function getHpTemplate(i) {
-    let getHP = Number (pokemonsCopy[i].stats[0].base_stat);
-    let calculation = (getHP / 255) * 100;
-    let roundendCalculation = Math.round(calculation);
+function getHpTemplate(roundendCalculation) {
     return `<div class="progress">
                 <div class="progress-bar" style="width: ${roundendCalculation}%"></div>
             </div>`
 }
 
 
-function getAttackTemplate(i) {
-    let getAttack = Number(pokemonsCopy[i].stats[1].base_stat);
-    let calculation = (getAttack / 190) * 100;
-    let roundendCalculation = Math.round(calculation);
+function getAttackTemplate(roundendCalculation) {
     return `<div class="progress">
                 <div class="progress-bar" style="width: ${roundendCalculation}%"></div>
             </div>`
 }
 
 
-function getDefenceTemplate(i) {
-    let getDefence = Number(pokemonsCopy[i].stats[2].base_stat);
-    let calculation = (getDefence / 250) * 100;
-    let roundendCalculation = Math.round(calculation);
+function getDefenceTemplate(roundendCalculation) {
     return `<div class="progress">
                 <div class="progress-bar" style="width: ${roundendCalculation}%"></div>
             </div>`
 }
 
 
-function getSpecialAttackTemplate(i) {
-    let getSpecialAttack = Number(pokemonsCopy[i].stats[3].base_stat);
-    let calculation = (getSpecialAttack / 194) * 100;
-    let roundendCalculation = Math.round(calculation);
+function getSpecialAttackTemplate(roundendCalculation) {
     return `<div class="progress">
                 <div class="progress-bar" style="width: ${roundendCalculation}%"></div>
             </div>`
 }
 
 
-function getSpecialDefenceTemplate(i) {
-    let getSpecialDefence = Number(pokemonsCopy[i].stats[4].base_stat);
-    let calculation = (getSpecialDefence / 250) * 100;
-    let roundendCalculation = Math.round(calculation);
+function getSpecialDefenceTemplate(roundendCalculation) {
     return `<div class="progress">
                 <div class="progress-bar" style="width: ${roundendCalculation}%"></div>
             </div>`
 }
 
 
-function getSpeedTemplate(i) {
-    let getSpeed = Number(pokemonsCopy[i].stats[5].base_stat);
-    let calculation = (getSpeed / 200) * 100;
-    let roundendCalculation = Math.round(calculation);
+function getSpeedTemplate(roundendCalculation) {
     return `<div class="progress">
                 <div class="progress-bar" style="width: ${roundendCalculation}%"></div>
             </div>`

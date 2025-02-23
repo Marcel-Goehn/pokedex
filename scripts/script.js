@@ -237,4 +237,58 @@ function checkRenderStatus(input) {
 }
 
 
+function getHp(i) {
+    let getHP = Number (pokemonsCopy[i].stats[0].base_stat);
+    let calculation = (getHP / 255) * 100;
+    let roundendCalculation = Math.round(calculation);
+    let calculationRef = getHpTemplate(roundendCalculation);
+    return calculationRef;
+}
+
+
+function getAttack(i) {
+    let getAttack = Number(pokemonsCopy[i].stats[1].base_stat);
+    let calculation = (getAttack / 190) * 100;
+    let roundendCalculation = Math.round(calculation);
+    let calculationRef = getAttackTemplate(roundendCalculation);
+    return calculationRef;
+}
+
+
+function getDefence(i) {
+    let getDefence = Number(pokemonsCopy[i].stats[2].base_stat);
+    let calculation = (getDefence / 250) * 100;
+    let roundendCalculation = Math.round(calculation);
+    let calculationRef = getDefenceTemplate(roundendCalculation);
+    return calculationRef;
+}
+
+
+function getSpecialAttack(i) {
+    let getSpecialAttack = Number(pokemonsCopy[i].stats[3].base_stat);
+    let calculation = (getSpecialAttack / 194) * 100;
+    let roundendCalculation = Math.round(calculation);
+    let calculationRef = getSpecialAttackTemplate(roundendCalculation);
+    return calculationRef;
+}
+
+
+function getSpecialDefence(i) {
+    let getSpecialDefence = Number(pokemonsCopy[i].stats[4].base_stat);
+    let calculation = (getSpecialDefence / 250) * 100;
+    let roundendCalculation = Math.round(calculation);
+    let calculationRef = getSpecialDefenceTemplate(roundendCalculation);
+    return calculationRef;
+}
+
+
+function getSpeed(i) {
+    let getSpeed = Number(pokemonsCopy[i].stats[5].base_stat);
+    let calculation = (getSpeed / 200) * 100;
+    let roundendCalculation = Math.round(calculation);
+    let calculationRef = getSpeedTemplate(roundendCalculation);
+    return calculationRef;
+}
+
+
 
