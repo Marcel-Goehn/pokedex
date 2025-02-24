@@ -53,28 +53,28 @@ function getDialogTemplate(i) {
                     <tr>
                         <td>Hp:</td>
                         <td>
-                            ${getHp(i)}
+                            ${pokemonStats(i, 0, 255, getHpTemplate)}
                         </td>
                     </tr>
                     <tr>
                         <td>Attack:</td>
-                        <td>${getAttack(i)}</td>
+                        <td>${pokemonStats(i, 1, 190, getAttackTemplate)}</td>
                     </tr>
                     <tr>
                         <td>Defence:</td>
-                        <td>${getDefence(i)}</td>
+                        <td>${pokemonStats(i, 2, 250, getDefenceTemplate)}</td>
                     </tr>
                     <tr>
                         <td>Special Attack:</td>
-                        <td>${getSpecialAttack(i)}</td>
+                        <td>${pokemonStats(i, 3, 194, getSpecialAttackTemplate)}</td>
                     </tr>
                     <tr>
                         <td>Special Defence:</td>
-                        <td>${getSpecialDefence(i)}</td>
+                        <td>${pokemonStats(i, 4, 250, getSpecialDefenceTemplate)}</td>
                     </tr>
                     <tr>
                         <td>Speed:</td>
-                        <td>${getSpeed(i)}</td>
+                        <td>${pokemonStats(i, 5, 200, getSpeedTemplate)}</td>
                     </tr>
                 </table>
                 <div class="d_none evolution-chain" id="evolution${i}">
