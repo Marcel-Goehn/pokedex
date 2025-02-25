@@ -1,17 +1,16 @@
-let BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=80&offset=0";
+let URL_START = 0;
+let BASE_URL = `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${URL_START}`;
 let pokemons = [];
 let pokemonsCopy = [];
 let pokemonsData = [];
 let pokemonsFetchedEvoChain = [];
-let clickedReloadBtn = false;
 const dialog = document.getElementById('overlay');
 const wrapper = document.querySelector('.wrapper');
-
-console.log();
 
 
 async function init() {
     loadingSpinner();
+    pokemons = [];
     let pokemonResponse = await fetchPokemons();
     let pokemonResponseObject = pokemonResponse;
     for (let i = 0; i < pokemonResponseObject.results.length; i++) {
@@ -89,6 +88,16 @@ async function fetchEvoChainTwo(data) {
 }
 
 
+function fetchMorePokemons() {
+    URL_START += 20;
+    BASE_URL = `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${URL_START}`;
+    let cardsRef = document.getElementById('poke_gallery');
+    cardsRef.innerHTML = ``;
+    disableRenderBtn();
+    init();
+}
+
+
 function loadingSpinner() {
     let cardsRef = document.getElementById('poke_gallery');
     cardsRef.innerHTML = getLoadingSpinnerTemplate();
@@ -100,25 +109,11 @@ function renderPokemonCards() {
     cardsRef.innerHTML = ``;
     pokemonsCopy = [];
 
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < pokemonsData.length; i++) {
         pokemonsCopy.push(structuredClone(pokemonsData[i]));
         cardsRef.innerHTML += getCardsTemplate(i);
     }
-    enableRenderBtn();
-}
-
-
-function renderAllFetchedPokemonCards() {
-    let cardsRef = document.getElementById('poke_gallery');
-    cardsRef.innerHTML = ``;
-    pokemonsCopy = [];
-    clickedReloadBtn = true;
-
-    for (let i = 0; i < pokemons.length; i++) {
-        pokemonsCopy.push(structuredClone(pokemonsData[i]));
-        cardsRef.innerHTML += getCardsTemplate(i);
-    }
-    disableRenderBtn();
+    maxRenderLenght();
 }
 
 
@@ -193,8 +188,7 @@ function getInputValue() {
     if(inputValue.length >= 3 || inputValue.length == 0) {
         document.getElementById('requirement').classList.add('d_none');
         filterPokemons(inputValue);
-    }
-    checkRenderStatus(inputValue);       
+    }      
 }
 
 
@@ -209,12 +203,12 @@ function filterPokemons(value) {
 }
 
 
-function checkRenderStatus(input) {
-    if(input.length == 0 && clickedReloadBtn == false) {
-        renderPokemonCards();
+function maxRenderLenght() {
+    if (pokemonsData.length == 140) {
+        disableRenderBtn();
     }
-    if(input.length == 0 && clickedReloadBtn == true) {
-        renderAllFetchedPokemonCards();
+    else {
+        enableRenderBtn();
     }
 }
 
