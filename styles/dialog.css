@@ -79,3 +79,17 @@ td {
     transform: scale(1.1);
     cursor: pointer;
 }
+
+.align-card-header-close-btn {
+    position: relative;
+}
+
+.align-close-dialog-btn {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+}
+
+.align-close-dialog-btn:hover {
+    cursor: pointer;
+}

@@ -182,12 +182,13 @@ function nextPokemon(i, event) {
 function getInputValue() {
     let inputRef = document.getElementById('input_search');
     let inputValue = inputRef.value;
-    if(inputValue.length < 3 && inputValue.length > 0) {
+    let inputValueToLowerCase = inputValue.toLowerCase();
+    if(inputValueToLowerCase.length < 3 && inputValueToLowerCase.length > 0) {
         document.getElementById('requirement').classList.remove('d_none');
     }
-    if(inputValue.length >= 3 || inputValue.length == 0) {
+    if(inputValueToLowerCase.length >= 3 || inputValueToLowerCase.length == 0) {
         document.getElementById('requirement').classList.add('d_none');
-        filterPokemons(inputValue);
+        filterPokemons(inputValueToLowerCase);
     }      
 }
 

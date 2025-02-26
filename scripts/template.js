@@ -13,7 +13,10 @@ function getCardsTemplate(i) {
 
 function getDialogTemplate(i) {
     return `<div class="card">
-                <h3>#<span>${pokemonsCopy[i].id}</span> <span>${pokemonsCopy[i].name}</span></h3>
+                <div class="align-card-header-close-btn">    
+                    <h3>#<span>${pokemonsCopy[i].id}</span> <span>${pokemonsCopy[i].name}</span></h3>
+                    <svg onclick="closeDialog()" class="align-close-dialog-btn" xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#FFFF"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>    
+                </div>
                 <div class="card-img-background ${pokemonsCopy[i].types[0].type.name}1">
                     <img src="${pokemonsCopy[i].sprites.front_default}" alt="${pokemonsCopy[i].name}">
                 </div>
